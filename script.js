@@ -27,3 +27,29 @@ function getComputerChoice() {
     return 'scissors';
   }
 }
+
+function compareChoices(playerChoice, computerChoice) {
+  if (playerChoice == compareChoices) {
+    return 'draw';
+  }
+
+  if (playerChoice == 'rock') {
+    if (computerChoice == 'paper') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  } else if (playerChoice == 'paper') {
+    if (computerChoice == 'scissors') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  } else {
+    if (computerChoice == 'rock') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  }
+}
