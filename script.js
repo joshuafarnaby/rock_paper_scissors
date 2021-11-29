@@ -1,3 +1,28 @@
+let playerScore = 0;
+let computerScore = 0;
+
+playGame()
+
+function playGame() {
+
+  let keepPlaying = true;
+
+  while (keepPlaying) {
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+
+    let roundWinner = compareChoices(playerChoice, computerChoice);
+
+    updateScores(roundWinner);
+
+    if (playerScore == 5 || computerScore == 5) {
+      keepPlaying = false
+    }
+  }
+
+  let gameWinner = playerScore > computerScore ? 'player' : 'omputer'
+}
+
 function getPlayerChoice() {
   let keepAsking = true;
   let input;
@@ -29,7 +54,7 @@ function getComputerChoice() {
 }
 
 function compareChoices(playerChoice, computerChoice) {
-  if (playerChoice == computerChoices) {
+  if (playerChoice == computerChoice) {
     return 'draw';
   }
 
@@ -60,4 +85,7 @@ function updateScores(winner) {
   } else {
     computerScore++
   }
+
+  console.log(`Player Score: ${playerScore}`);
+  console.log(`Computer Score: ${computerScore}`);
 }
