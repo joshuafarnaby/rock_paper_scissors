@@ -53,3 +53,11 @@ function compareChoices(playerChoice, computerChoice) {
     }
   }
 }
+
+function updateScores(winner) {
+  if (winner == 'player') {
+    playerScore++
+  } else {
+    computerScore++
+  }
+}
