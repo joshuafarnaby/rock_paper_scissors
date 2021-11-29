@@ -29,7 +29,7 @@ function getComputerChoice() {
 }
 
 function compareChoices(playerChoice, computerChoice) {
-  if (playerChoice == compareChoices) {
+  if (playerChoice == computerChoices) {
     return 'draw';
   }
 
