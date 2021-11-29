@@ -20,7 +20,9 @@ function playGame() {
     }
   }
 
-  let gameWinner = playerScore > computerScore ? 'player' : 'omputer'
+  let gameWinner = playerScore > computerScore ? 'Player' : 'Computer'
+
+  declareWinner(gameWinner)
 }
 
 function getPlayerChoice() {
@@ -88,4 +90,8 @@ function updateScores(winner) {
 
   console.log(`Player Score: ${playerScore}`);
   console.log(`Computer Score: ${computerScore}`);
+}
+
+function declareWinner(gameWinner) {
+  console.log(`Congratulations ${gameWinner}, you win!`);
 }
