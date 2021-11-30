@@ -32,13 +32,20 @@ function playRound(e) {
   } else {
     declareRoundWinner(roundWinner, computerChoice);
     updateLives(roundWinner);
-    //checkGameOver
+    // if (checkGameOver) {
+    //   declareGameOver()
+    // }
   }
 }
 
 function updateLives(roundWinner) {
   let heartListToUpdate = getHeartList(roundWinner);
   let targetIndex = roundWinner == 'player' ? --computerLives : --playerLives;
+
+  console.log(`
+    player lives: ${playerLives}
+    computer lives: ${computerLives}
+  `);
 
   heartListToUpdate[targetIndex].classList.add('faded');
 }
@@ -51,6 +58,10 @@ function getHeartList(roundWinner) {
   return [...heartContainer.children]
 }
 
+function checkGameOver() {
+  return playerLives < 0 || computerLives < 0;
+}
+ 
 function declareRoundWinner(roundWinner, computerChoice) {
   resultContainer.querySelector('h2').innerText = `computer chose ${computerChoice}`;
   resultContainer.querySelector('h4').innerText = `${roundWinner} wins this round!`;
@@ -102,4 +113,6 @@ function compareChoices(playerChoice, computerChoice) {
     }
   }
 }
+
+
 
