@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-  
+  <script src="script2.js" defer></script>
   <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -33,13 +33,13 @@
     </div>
   </div>
   <div id="play-container">
-    <i class="far fa-hand-rock fa-10x"></i>
-    <i class="far fa-hand-paper fa-10x"></i>
-    <i class="far fa-hand-scissors fa-10x"></i>
+    <i id="rock" class="far fa-hand-rock fa-10x"></i>
+    <i id="paper" class="far fa-hand-paper fa-10x"></i>
+    <i id="scissors" class="far fa-hand-scissors fa-10x"></i>
   </div>
-  <div id="result-container">
-    <h2>Computer chose rock!</h2>
-    <p>You win this round!</p>
+  <div id="result-container" class="hide">
+    <h2>computer chose rock!</h2>
+    <h4>you win this round!</h4>
   </div>
 </body>
 </html>
