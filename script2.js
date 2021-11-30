@@ -8,9 +8,14 @@ const playContainer = document.getElementById('play-container');
 const playIcons = [...playContainer.children];
 const resultContainer = document.getElementById('result-container');
 
+let playerLives = 5;
+let computerLives = 5
+
 playIcons.forEach(icon => icon.addEventListener('click', playRound));
 
-resultContainer.addEventListener('transitionend', () => resultContainer.classList.add('hide'));
+resultContainer.addEventListener('transitionend', () => {
+  resultContainer.classList.add('hide');
+});
 
 function playRound(e) {
   let playerChoice = e.target.id;
@@ -25,18 +30,37 @@ function playRound(e) {
   if (roundWinner == 'draw') {
     declareDraw(playerChoice)
   } else {
-    //declareRoundWinner
-    //updateScore
+    declareRoundWinner(roundWinner, computerChoice);
+    updateLives(roundWinner);
     //checkGameOver
   }
 }
 
-function declareDraw(playerChoice) {
-  let resultHeading = resultContainer.querySelector('h2');
-  let resultText = resultContainer.querySelector('h4');
+function updateLives(roundWinner) {
+  let heartListToUpdate = getHeartList(roundWinner);
+  let targetIndex = roundWinner == 'player' ? --computerLives : --playerLives;
 
-  resultHeading.innerText = `you both chose ${playerChoice}`;
-  resultText.innerText = `this one was a draw`
+  heartListToUpdate[targetIndex].classList.add('faded');
+}
+
+function getHeartList(roundWinner) {
+  let roundLoser = roundWinner == 'player' ? 'computer' : 'player';
+
+  let heartContainer = document.getElementById(`${roundLoser}-lives`).querySelector('.heart-container');
+
+  return [...heartContainer.children]
+}
+
+function declareRoundWinner(roundWinner, computerChoice) {
+  resultContainer.querySelector('h2').innerText = `computer chose ${computerChoice}`;
+  resultContainer.querySelector('h4').innerText = `${roundWinner} wins this round!`;
+
+  resultContainer.classList.remove('hide');
+}
+
+function declareDraw(playerChoice) {
+  resultContainer.querySelector('h2').innerText = `you both chose ${playerChoice}`;
+  resultContainer.querySelector('h4').innerText = `this one was a draw`
 
   resultContainer.classList.remove('hide');
 }
