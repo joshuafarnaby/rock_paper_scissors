@@ -44,7 +44,21 @@ body {
   cursor: pointer;
 }
 
+#result-container {
+  margin: 100px auto;
+  text-align: center;
+  transition: 0.5s;
+}
+
 .faded {
   opacity: 15%;
   transform: scale(0.5);
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
 }
