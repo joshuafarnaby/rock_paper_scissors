@@ -9,6 +9,7 @@
 body {
   font-family: 'Roboto Mono', sans-serif;
   background-color: #fefefe;
+  position: relative;
 }
 
 #lives-container {
@@ -39,9 +40,18 @@ body {
   justify-content: center;
 }
 
-#play-container i:hover {
+/* #play-container i:hover {
   transform: scale(1.05);
   cursor: pointer;
+} */
+
+.hover:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.game-over {
+  cursor: not-allowed;
 }
 
 #result-container {

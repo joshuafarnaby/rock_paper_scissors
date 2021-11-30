@@ -12,10 +12,11 @@ let playerLives = 5;
 let computerLives = 5
 
 playIcons.forEach(icon => icon.addEventListener('click', playRound));
+resultContainer.addEventListener('transitionend', hideContainer);
 
-resultContainer.addEventListener('transitionend', () => {
+function hideContainer() {
   resultContainer.classList.add('hide');
-});
+}
 
 function playRound(e) {
   let playerChoice = e.target.id;
@@ -32,9 +33,9 @@ function playRound(e) {
   } else {
     declareRoundWinner(roundWinner, computerChoice);
     updateLives(roundWinner);
-    // if (checkGameOver) {
-    //   declareGameOver()
-    // }
+    if (checkGameOver()) {
+      declareGameOver(roundWinner)
+    }
   }
 }
 
@@ -58,8 +59,22 @@ function getHeartList(roundWinner) {
   return [...heartContainer.children]
 }
 
+function declareGameOver(roundWinner) {
+  playIcons.forEach(icon => {
+    icon.removeEventListener('click', playRound);
+    icon.classList.remove('hover');
+    icon.classList.add('game-over');
+  })
+
+  resultContainer.removeEventListener('transitionend', hideContainer);
+
+  resultContainer.querySelector('h2').textContent = `congratulions ${roundWinner}`
+  resultContainer.querySelector('h4').textContent = 'you\'re the winner!'
+
+}
+
 function checkGameOver() {
-  return playerLives < 0 || computerLives < 0;
+  return playerLives == 0 || computerLives == 0;
 }
  
 function declareRoundWinner(roundWinner, computerChoice) {
