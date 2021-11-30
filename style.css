@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Mono', sans-serif;
+  background-color: #fefefe;
+}
+
+#lives-container {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin: 100px 0;
+}
+
+#player-lives,
+#computer-lives {
+  text-align: center;
+}
+
+#player-lives p,
+#computer-lives p {
+  margin-bottom: 6px;
+}
+
+#player-lives i,
+#computer-lives i {
+  transition: 1s;
+}
+
+#play-container {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
+#play-container i:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.faded {
+  opacity: 15%;
+  transform: scale(0.5);
+}
